@@ -1,0 +1,26 @@
+{
+	"name": "node-red-http-multipart-file-request",
+	"version": "0.0.1",
+	"description": "NodeRed node for posting multipart form data/files.",
+	"scripts": {},
+	"dependencies": {
+		"mustache": "^2.3.0",
+		"request": "^2.86.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+"
+	},
+	"keywords": [
+		"node-red",
+		"multipart",
+		"formdata"
+	],
+	"author": "Leonardo Oliveira",
+	"license": "ISC",
+	"node-red": {
+		"nodes": {
+			"http-multipart-file-request": "http-multipart-file-request.js"
+		}
+	}
+}
