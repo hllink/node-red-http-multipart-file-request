@@ -34,7 +34,8 @@ module.exports = function (RED) {
             if (msg.formfiles && msg.formfiles.length > 0) {
                 for (let i = 0; i < msg.formfiles.length; i++) {
                     let formfile = msg.formfiles[i]
-                    var filePath = '/tmp/' + i +formfile.originalname
+                    var filePath = '/tmp/' + Date.now() +formfile.originalname
+                    formfile.tmpFilePath = filePath
                     fs.writeFileSync(filePath, formfile.buffer);
                     if (formData[formfile.fieldname]) {
                         if (Array.isArray(formData[formfile.fieldname])) {
@@ -68,7 +69,7 @@ module.exports = function (RED) {
                 if (msg.formfiles && msg.formfiles.length > 0) {
                     for (let i = 0; i < msg.formfiles.length; i++) {
                         let formfile = msg.formfiles[i]
-                        var filePath = '/tmp/' +i+ formfile.originalname
+                        var filePath = formfile.tmpFilePath
                         fs.unlink(filePath, function (error) {
                             if (error) {
                                 throw error;
